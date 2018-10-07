@@ -1,0 +1,15 @@
+<h1>Export des Spam de referer</h1>
+
+<p>A placer dans votre fichier htaccess.</p>
+
+<pre class="spip_cadre"><code>
+&lt;IfModule mod_rewrite.c&gt;
+
+RewriteEngine On
+
+<BOUCLE_listSpam(spip_referer_spam)>[(#SET{url, #REFERER|replace{http(s)?://}|replace{-,\-}|replace{\.,\.} })
+]RewriteCond %{HTTP_REFERER} ^http(s)?://(www.)?.*[(#GET{url})].*$ [NC[(#COMPTEUR_BOUCLE|!={#TOTAL_BOUCLE}|?{',OR',''})]]
+</BOUCLE_listSpam>
+RewriteRule ^(.*)$ – [F,L]
+&lt;/IfModule&gt;
+</code></pre>
