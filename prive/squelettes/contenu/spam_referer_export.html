@@ -9,7 +9,6 @@ RewriteEngine On
 
 <BOUCLE_listSpam(spip_referer_spam)>[(#SET{url, #REFERER|replace{http(s)?://}|replace{-,\-}|replace{\.,\.} })
 ]RewriteCond %{HTTP_REFERER} ^http(s)?://(www.)?.*[(#GET{url})].*$ [NC[(#COMPTEUR_BOUCLE|!={#TOTAL_BOUCLE}|?{',OR',''})]]
-</BOUCLE_listSpam>
-RewriteRule ^(.*)$ – [F,L]
+</BOUCLE_listSpam>RewriteRule ^(.*)$ – [F,L]
 &lt;/IfModule&gt;
 </code></pre>
