@@ -42,10 +42,17 @@
 							<div class="referer-detail none-js">
 								<ul>
 								<BOUCLE_sous(POUR){tableau #VALEUR{referers}}{si #GET{whitelisted}|oui}>
+								[(#_statsr:CLE|=={(email)}|oui)
+									<li>
+										<a href="#VALEUR{referer}">#VALEUR{referer}</a>
+										[(#VALEUR{visites}|>{1}|oui)\(#VALEUR{visites}\)]
+									</li>
+								][(#_statsr:CLE|=={(email)}|non)
 									<li><a href="#VALEUR{referer}">[(#VALEUR{keywords}|?{[&laquo;&nbsp;(#VALEUR{keywords})&nbsp;&raquo;],[(#VALEUR{path})]})]</a>
 										[(#VALEUR{visites}|>{1}|oui)\(#VALEUR{visites}\)]
 										[<br />(#VALEUR{referes})]
 									</li>
+								]
 								</BOUCLE_sous>
 								</ul>
 							</div>
