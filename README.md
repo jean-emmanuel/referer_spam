@@ -1,3 +1,5 @@
+:warning: Plugin migré sur https://git.spip.net/spip-contrib-extensions/referer_spam :warning:
+
 <h1><img src="http://contrib.spip.net/local/cache-gd2/8d/d89e3fe02c8b41b8f23f33b541a209.png?1453217799"/> Referer spam</h1>
 
 
